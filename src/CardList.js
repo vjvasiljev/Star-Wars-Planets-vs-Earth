@@ -6,6 +6,7 @@ const CardList = ({planets}) => {
   return (
     <div>
       <Card planet={planets.earth} />
+      <Card planet={planets.swPlanet} />
     </div>
   )
 }

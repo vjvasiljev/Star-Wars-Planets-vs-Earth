@@ -23,6 +23,13 @@ class App extends Component {
       swPlanet: {}
     }
   }
+
+  componentDidMount() {
+    fetch(`https://swapi.co/api/planets/${Math.floor(Math.random() * 61) + 1 }/`)
+      .then(resp => resp.json())
+      .then(planet => this.setState({swPlanet: planet}));
+  }
+
   render() {
     const { earth, swPlanet } = this.state;
     console.log(earth.population);
