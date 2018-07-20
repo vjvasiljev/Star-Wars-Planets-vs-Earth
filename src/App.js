@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import CardList from './CardList';
 import Card from './Card';
 import 'tachyons';
 
@@ -28,8 +29,7 @@ class App extends Component {
     return (
       <div className="App tc ">
         <Header />
-        <Card earth={earth}/>
-        <Card earth={earth}/>
+        <CardList planets={this.state} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Card = ({ earth }) => {
-  console.log("Earth", earth.population);
+const Card = ({planet}) => {
+  console.log("Earth", planet);
   const {
     population,
     diameter,
@@ -12,7 +12,7 @@ const Card = ({ earth }) => {
     gravity,
     terrain,
     surface_water
-  } = earth;
+  } = planet;
   // const {population} = earth;
   // console.log(earth, population);
   return (
