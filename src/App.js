@@ -25,9 +25,10 @@ class App extends Component {
 
   componentDidMount() {
     //connect to SW API
-    fetch(`https://swapi.co/api/planets/${Math.floor(Math.random() * 61) + 1 }/`)
+    fetch(`https://swapi.co/api/planets/`)
       .then(resp => resp.json())
-      .then(planet => this.setState({swPlanet: planet}));
+      .then(planet => this.setState({ swPlanet: planet.results[0] }));
+        // this.setState({swPlanet: planet}));
   }
 
   render() {
