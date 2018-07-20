@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+//Destructure planet object
 const Card = ({planet}) => {
   console.log("Earth", planet);
   const {
@@ -16,10 +18,13 @@ const Card = ({planet}) => {
   // const {population} = earth;
   // console.log(earth, population);
   return (
-    <div className="bg-near-black dib pa3 ma2 bw2 shadow-5 white">
+
+    //TODO check if uknown and remove measurement units
+    //insert info about a planet into the Card
+    <div className="bg-near-black dib pa3 ma5 bw2 shadow-5 white w-25">
       <h2 className="f2 yellow">{name}</h2>
       <p>Population: {population}</p>
-      <p>Diameter: {diameter}m</p>
+      <p>Diameter: {diameter}m</p> 
       <p>Rotation Period: {rotation_period}h</p>
       <p>Orbital Period: {orbital_period} days</p>
       <p>Climate: {climate}</p>

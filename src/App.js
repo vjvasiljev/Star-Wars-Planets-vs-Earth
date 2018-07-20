@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import CardList from './CardList';
-import Card from './Card';
 import 'tachyons';
 
 class App extends Component {
@@ -25,6 +24,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    //connect to SW API
     fetch(`https://swapi.co/api/planets/${Math.floor(Math.random() * 61) + 1 }/`)
       .then(resp => resp.json())
       .then(planet => this.setState({swPlanet: planet}));
@@ -34,7 +34,7 @@ class App extends Component {
     const { earth, swPlanet } = this.state;
     console.log(earth.population);
     return (
-      <div className="App tc ">
+      <div className="App tc bg-dark-gray">
         <Header />
         <CardList planets={this.state} />
       </div>
