@@ -1,18 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header';
+import CardList from './CardList';
+import Card from './Card';
+import 'tachyons';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      earth: {
+        name: "Earth",
+        rotation_period: 24,
+        orbital_period: 365,
+        climate: "temperate",
+        gravity: "1 standart",
+        terrain: "mixed",
+        surface_water: 71,
+        population: 7637159732,
+        diameter: 12742,
+
+      },
+      swPlanet: {}
+    }
+  }
+
+  componentDidMount() {
+    fetch(`https://swapi.co/api/planets/${Math.floor(Math.random() * 61) + 1 }/`)
+      .then(resp => resp.json())
+      .then(planet => this.setState({swPlanet: planet}));
+  }
+
   render() {
+    const { earth, swPlanet } = this.state;
+    console.log(earth.population);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App tc ">
+        <Header />
+        <CardList planets={this.state} />
       </div>
     );
   }
