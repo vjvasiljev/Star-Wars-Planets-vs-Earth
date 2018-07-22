@@ -1,13 +1,15 @@
 import React from 'react';
 import Card from './Card';
+import CardCompare from './CardCompare';
 
 //create a list of Cards
-const CardList = ({planets}) => {
-  // console.log("CardList", planets.earth)
+const CardList = (props) => {
+  console.log("CardList", props.selectedPlanet)
   return (
     <div className="bg-dark-gray">
-      <Card planet={planets.earth} />
-      <Card planet={planets.swPlanet} />
+      <Card planet={props.earth} />
+      <CardCompare planets={props}/>
+      <Card planet={props.selectedPlanet} />
     </div>
   )
 }

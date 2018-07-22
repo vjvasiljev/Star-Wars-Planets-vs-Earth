@@ -30,7 +30,7 @@ class App extends Component {
     fetch(`https://swapi.co/api/planets/`)
       .then(resp => resp.json())
       .then(planet => this.setState({ swPlanet: planet.results }));
-        // this.setState({swPlanet: planet}));
+    // this.setState({swPlanet: planet}));
   }
 
   onPlanetSelect = (event) => {
@@ -38,14 +38,27 @@ class App extends Component {
     this.setState({ planetSelectField: event.target.value });
   }
 
+  selectPlanet = () => {
+    if (this.state.swPlanet.length > 0) {
+      console.log("planetSelectField", this.state.planetSelectField);
+      const selectedPlanet = this.state.swPlanet.filter(planet =>
+        planet.name.includes(this.state.planetSelectField))
+      console.log("swPlanet", selectedPlanet[0]);
+      return selectedPlanet[0];
+    } else {
+      return {};
+    }
+  }
+
+
   render() {
     const { earth, swPlanet } = this.state;
     // console.log(earth.population);
     return (
       <div className="App tc bg-dark-gray">
         <Header />
-        <Selector planets={swPlanet} planetSelect={this.onPlanetSelect}/>
-        <CardList planets={this.state} />
+        <Selector planets={swPlanet} planetSelect={this.onPlanetSelect} />
+        <CardList earth={earth} selectedPlanet={this.selectPlanet()} />
       </div>
     );
   }
