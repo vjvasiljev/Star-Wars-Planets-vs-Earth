@@ -20,7 +20,8 @@ class App extends Component {
         diameter: 12742,
 
       },
-      swPlanet: {}
+      swPlanet: {},
+      planetSelectField: ''
     }
   }
 
@@ -32,13 +33,18 @@ class App extends Component {
         // this.setState({swPlanet: planet}));
   }
 
+  onPlanetSelect = (event) => {
+    console.log(event.target.value);
+    this.setState({ planetSelectField: event.target.value });
+  }
+
   render() {
     const { earth, swPlanet } = this.state;
     // console.log(earth.population);
     return (
       <div className="App tc bg-dark-gray">
         <Header />
-        <Selector planets={swPlanet}/>
+        <Selector planets={swPlanet} planetSelect={this.onPlanetSelect}/>
         <CardList planets={this.state} />
       </div>
     );

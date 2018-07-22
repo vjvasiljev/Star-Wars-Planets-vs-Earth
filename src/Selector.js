@@ -18,8 +18,9 @@ const planetOptions = (planetArray) => {
 const Selector = (props) => {
   console.log("Selector", props);
   return (
-    <div className="pa2 ma3">
-      <select className="ma3">
+    <div className="ma3">
+      <select className="pa3 ba b--yellow bg-light-yellow"
+        onChange={props.planetSelect}>
         {planetOptions(props.planets)}
       </select>
     </div>
