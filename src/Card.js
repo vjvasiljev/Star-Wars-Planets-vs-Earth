@@ -3,7 +3,7 @@ import React from 'react';
 
 //Destructure planet object
 const Card = ({planet}) => {
-  console.log("Earth", planet);
+  // console.log("Earth", planet);
   const {
     population,
     diameter,
