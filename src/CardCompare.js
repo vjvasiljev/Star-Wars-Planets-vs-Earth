@@ -1,4 +1,5 @@
 import React from 'react';
+import Graph from './Graph';
 import "tachyons";
 
 const CardCompare = props => {
@@ -53,14 +54,14 @@ const CardCompare = props => {
   console.log("Proportions", proportions.population);
   const x = proportions.population;
 
+  //TODO create separate component for slider
 
   //const populationDiff = population - props.planets.selectedPlanet.population;
   // console.log(population, );
-  return (< div className="bg-near-black dib pa3 ma3 bw2 shadow-5 white w-25" >
+  return (< div className="dib bw2 white w-25" >
     <h2 className="f2 yellow">Diffrence</h2>
-    <div className={`w-${proportions.population} bg-green h-5 ma0 dib`}>s</div>
-    <div className={`w-${100 - proportions.population} bg-red h-5 ma0 dib`}>s</div>
-    <p>Population: {population}</p>
+    <Graph proportions={proportions}/>
+    {/* <p>Population: {population}</p> */}
     <p>Diameter: {diameter}m</p>
     <p>Rotation Period: {rotation_period}h</p>
     <p>Orbital Period: {orbital_period} days</p>

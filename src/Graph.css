@@ -1,0 +1,25 @@
+/* Make sure that padding behaves as expected */
+
+* {
+  box-sizing: border-box
+}
+
+/* Container for skill bars */
+
+.container {
+  width: 100%;
+  /* Full width */
+  /* Grey background */
+}
+
+.skills {
+  text-align: right;
+  /* Right-align text */
+  padding-right: 20px;
+  /* Add some right padding */
+  line-height: 40px;
+  /* Set the line-height to center the text inside the skill bar, and to expand the height of the container */
+  color: white;
+  width: 90%;
+  /* White text color */
+}
