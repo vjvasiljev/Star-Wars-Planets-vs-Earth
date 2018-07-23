@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import Selector from './Selector';
 import CardList from './CardList';
 import 'tachyons';
 
@@ -19,24 +20,45 @@ class App extends Component {
         diameter: 12742,
 
       },
-      swPlanet: {}
+      swPlanet: {},
+      planetSelectField: ''
     }
   }
 
   componentDidMount() {
     //connect to SW API
-    fetch(`https://swapi.co/api/planets/${Math.floor(Math.random() * 61) + 1 }/`)
+    fetch(`https://swapi.co/api/planets/`)
       .then(resp => resp.json())
-      .then(planet => this.setState({swPlanet: planet}));
+      .then(planet => this.setState({ swPlanet: planet.results }));
+    // this.setState({swPlanet: planet}));
   }
+
+  onPlanetSelect = (event) => {
+    console.log(event.target.value);
+    this.setState({ planetSelectField: event.target.value });
+  }
+
+  selectPlanet = () => {
+    if (this.state.swPlanet.length > 0) {
+      console.log("planetSelectField", this.state.planetSelectField);
+      const selectedPlanet = this.state.swPlanet.filter(planet =>
+        planet.name.includes(this.state.planetSelectField))
+      console.log("swPlanet", selectedPlanet[0]);
+      return selectedPlanet[0];
+    } else {
+      return {};
+    }
+  }
+
 
   render() {
     const { earth, swPlanet } = this.state;
-    console.log(earth.population);
+    // console.log(earth.population);
     return (
       <div className="App tc bg-dark-gray">
         <Header />
-        <CardList planets={this.state} />
+        <Selector planets={swPlanet} planetSelect={this.onPlanetSelect} />
+        <CardList earth={earth} selectedPlanet={this.selectPlanet()} />
       </div>
     );
   }
