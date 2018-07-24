@@ -60,15 +60,20 @@ const CardCompare = props => {
   // console.log(population, );
   return (< div className="dib bw2 white w-25" >
     <h2 className="f2 yellow">Diffrence</h2>
-    <Graph proportions={proportions}/>
+    <Graph proportions={proportions.population}/>
+    <Graph proportions={proportions.diameter} />
+    <Graph proportions={proportions.rotation_period} />
+    <Graph proportions={proportions.orbital_period} />
+    <Graph proportions={proportions.surface_water} />
+
     {/* <p>Population: {population}</p> */}
-    <p>Diameter: {diameter}m</p>
+    {/* <p>Diameter: {diameter}m</p>
     <p>Rotation Period: {rotation_period}h</p>
     <p>Orbital Period: {orbital_period} days</p>
     <p>Climate: {climate}</p>
     <p>Gravity: {gravity}</p>
     <p>Terrain: {terrain}</p>
-    <p>Surface Water: {surface_water}% </p>
+    <p>Surface Water: {surface_water}% </p> */}
   </div>)
 }
 

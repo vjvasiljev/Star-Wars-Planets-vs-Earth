@@ -27,9 +27,9 @@ const Card = ({planet = {name: "Loading..."}}) => {
       <p>Diameter: {diameter}m</p> 
       <p>Rotation Period: {rotation_period}h</p>
       <p>Orbital Period: {orbital_period} days</p>
-      <p>Climate: {climate}</p>
+      {/* <p>Climate: {climate}</p>
       <p>Gravity: {gravity}</p>
-      <p>Terrain: {terrain}</p>
+      <p>Terrain: {terrain}</p> */}
       <p>Surface Water: {surface_water}% </p>
     </div>
   )
